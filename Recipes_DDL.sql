@@ -89,4 +89,4 @@ CREATE TABLE recipes.cart_recipe (
 ALTER TABLE recipes.cart_recipe
 ADD CONSTRAINT unique_cart_recipe UNIQUE (cart_id, recipe_id);
 
-insert into cart (total_in_cents, created, enabled) values (0, '2025-01-01', true);
+insert into recipes.cart (total_in_cents, created, enabled) values (0, '2025-01-01', true);
