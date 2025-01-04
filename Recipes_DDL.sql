@@ -42,7 +42,6 @@ INSERT INTO recipes.ingredients (name) VALUES
 ('Olive Oil'),
 ('Garlic');
 
--- Insert recipes
 INSERT INTO recipes.recipes (title, description, instructions, minutes, difficulty, vegetarian, servings, created, price_in_cents) VALUES
 ('Chocolate Cake', 'A rich and moist chocolate cake perfect for any occasion.',
     '1. Preheat oven to 350°F (175°C). 2. Mix dry ingredients. 3. Add wet ingredients and mix. 4. Bake for 30 minutes.',
@@ -51,7 +50,6 @@ INSERT INTO recipes.recipes (title, description, instructions, minutes, difficul
     '1. Boil pasta. 2. Sauté garlic in butter. 3. Toss cooked pasta with garlic butter and season.',
     20, 'Easy', TRUE, 4, '2025-01-02', 2500);
 
--- Insert recipe ingredients for Chocolate Cake
 INSERT INTO recipes.recipe_ingredient (recipe_id, ingredient_id, quantity, unit) VALUES
 (1, 1, 200, 'GRAMS'),  -- Sugar
 (1, 2, 250, 'GRAMS'),  -- Flour
@@ -62,14 +60,12 @@ INSERT INTO recipes.recipe_ingredient (recipe_id, ingredient_id, quantity, unit)
 (1, 8, 1, 'TEASPOON'), -- Vanilla Extract
 (1, 9, 150, 'GRAMS');  -- Chocolate
 
--- Insert recipe ingredients for Garlic Butter Pasta
 INSERT INTO recipes.recipe_ingredient (recipe_id, ingredient_id, quantity, unit) VALUES
 (2, 11, 3, 'PIECE'),  -- Garlic
 (2, 5, 50, 'GRAMS'),   -- Butter
 (2, 10, 30, 'MILLILITER'),     -- Olive Oil
 (2, 2, 200, 'GRAMS'),  -- Pasta (Flour)
 (2, 6, 1, 'TEASPOON'); -- Salt
-
 
 CREATE TABLE recipes.cart (
     id INT NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
@@ -89,4 +85,4 @@ CREATE TABLE recipes.cart_recipe (
 ALTER TABLE recipes.cart_recipe
 ADD CONSTRAINT unique_cart_recipe UNIQUE (cart_id, recipe_id);
 
-insert into recipes.cart (total_in_cents, created, enabled) values (0, '2025-01-01', true);
+INSERT INTO recipes.cart (total_in_cents, created, enabled) VALUES (0, '2025-01-01', true);
